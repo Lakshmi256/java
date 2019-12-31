@@ -7,8 +7,12 @@ import org.junit.jupiter.api.Test;
 class TestUserNAme {
 
 	@Test
-	void test() {
+	void testforreplacingaString()throws Exception {
 assertEquals("Hello Lp, How are you? ",UserName.replace("Lp"));
+assertEquals("Hello hari, How are you? ",UserName.replace("hari"));
+assertEquals("Hello puni, How are you? ",UserName.replace("puni"));
+assertEquals("Hello 123, How are you? ",UserName.replace("123"));
+assertEquals("Hello xyz, How are you? ",UserName.replace("xyz"));
 	}
 
 }
