@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestHarmonic {
 
 	@Test
-	public void testHarmonicSeries() throws Exception{
+	public void given1_afterharmonicseries_itshouldbe1() throws Exception{
 		assertEquals(1,Harmonic.harmonic(1));
 		assertEquals(1.5,Harmonic.harmonic(2));
 		assertEquals(1.8333333333333333,Harmonic.harmonic(3));

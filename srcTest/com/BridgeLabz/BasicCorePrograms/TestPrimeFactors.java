@@ -6,14 +6,8 @@ import org.junit.jupiter.api.Test;
 
 class TestPrimeFactors {
 	@Test
-	void testforPrimeFactorsOfN()throws Exception {
+	void given25_afterprimefactors_itshouldbe5and5()throws Exception {
 		assertEquals(5,5,PrimeFactors.primefactors(25));
-		assertEquals(5,5,PrimeFactors.primefactors(37));
-		assertEquals(5,5,PrimeFactors.primefactors(39));
-		assertEquals(5,5,PrimeFactors.primefactors(25));
-		assertEquals(5,5,PrimeFactors.primefactors(25));
-		assertEquals(5,5,PrimeFactors.primefactors(25));
-		assertEquals(5,5,PrimeFactors.primefactors(25));
-		assertEquals(5,5,PrimeFactors.primefactors(25));
+	
 	}
 }

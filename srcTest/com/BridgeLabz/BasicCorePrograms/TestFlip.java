@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestPowerOfTwo {
+class TestFlip {
 
 	@Test
-	void given5_afterpoweroftwo_itshouldbe_16() {
-		assertEquals(16,PowerOfTwo.poweroftwo(5));
+	void given8_afterflip_itshouldbetrue() {
+		assertEquals(true,Flip.flip(8));
 	}
 
 }
