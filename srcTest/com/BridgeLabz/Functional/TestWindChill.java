@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestWindChill {
 
 	@Test
-	void testforWindChill()throws Exception {
+	void given55and28_afterwindchill_itshouldbe425_9491106()throws Exception {
 		assertEquals(425.94911061542285,WindChill.wind(55, 28));
 		assertEquals(388.31989539038415,WindChill.wind(55, 24));
 		assertEquals(1593.5779080927769,WindChill.wind(123, 66));

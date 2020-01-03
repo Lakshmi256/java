@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestDistance {
 
 	@Test
-	void testforDistanceBetweenTwoPoints() throws Exception{
+	void given4and5_afterDistance_itshouldbe3() throws Exception{
 		assertEquals(3,Distance.distance(5,4));
 		assertEquals(5.744562646538029,Distance.distance(7,4));
 		assertEquals(0,Distance.distance(5,5));
