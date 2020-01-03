@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestBinarytree {
 
 	@Test
-	void testforNodesinBinaryTree()throws Exception {
+	void given4_afterbinarytreesearch_itshouldbe14()throws Exception {
 		assertEquals(14,Binarytree.bintree(4));
 		assertEquals(1,Binarytree.bintree(1));
 		assertEquals(2,Binarytree.bintree(2));

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestParanthesis {
 
 	@Test
-	void testforBalancedParanthesis()throws Exception {
+	void givenexp_aftercheckingforparanthesis_itshouldbetrue()throws Exception {
 		  char exp[] = {'{','(',')','}','[',']'}; 
 		  char exp1[] = {'(',')','}','[',']'}; 
 		  char exp2[] = {'{','}','[',']'}; 
