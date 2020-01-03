@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestTemperatureConversions {
 
 	@Test
-	void testforTemperatureConversions()throws Exception {
+	void given167f_afterconversion_itshouldbe75()throws Exception {
 assertEquals(23.88888888888889,TemperatureConversions.temp(1, 75));
 assertEquals(167.0,TemperatureConversions.temp(0, 75));
 assertEquals(347.0,TemperatureConversions.temp(0, 175));

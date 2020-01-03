@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class TestToBinary {
 
 	@Test
-	void testToConvsionforBinary()throws Exception {
+	void given2_afterbinaryconversion_itshouldbe10()throws Exception {
 		assertEquals(10, ToBinary.tobin(2));
 		assertEquals(11, ToBinary.tobin(3));
 		assertEquals(101, ToBinary.tobin(5));

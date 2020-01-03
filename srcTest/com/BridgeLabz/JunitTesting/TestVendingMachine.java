@@ -1,13 +1,14 @@
 package com.BridgeLabz.JunitTesting;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class TestVendingMachine {
 
 	@Test
-	void testforNumberofNotesVendingMachineReturns() {
+	void givenamount5512_aftervending_itshouldreturn8notes() {
 		assertEquals(8,VendingMachine.vend(5512));
 		assertEquals(22,VendingMachine.vend(9999));
 		assertEquals(14,VendingMachine.vend(8765));

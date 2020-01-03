@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestDayOfWeek {
 
 	@Test
-	void testtoFindDayOfWeek()throws Exception {
+	void given28_12_2019_afterfindingdayofweek_itshouldbe5()throws Exception {
 		assertEquals(5,DayOfWeek.dayofweek(28, 12, 2019));
 		assertEquals(3,DayOfWeek.dayofweek(1, 1, 2020));
 		assertEquals(4,DayOfWeek.dayofweek(28, 9, 1996));
