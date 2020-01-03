@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class TestBinarySearch {
 	@Test
-	void testforBinarySearch()throws Exception{
+	void givenarrandabb_whenfoundthroughBinarySearch_itshouldbeTrue()throws Exception{
 		String[] arr={"aac" ,"abb", "abc", "acb", "cab"};
 		assertEquals(true,BinarySearch.binarySearch(arr,"abb"));
 		assertEquals(true,BinarySearch.binarySearch(arr,"aac"));
