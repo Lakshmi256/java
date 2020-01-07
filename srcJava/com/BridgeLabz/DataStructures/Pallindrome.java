@@ -4,8 +4,6 @@ public class Pallindrome {
 	public static boolean pallindrome(String arr) {
 		// TODO Auto-generated method stub
 		   Deque<String> ob=new Deque<String>();
-		  
-			
 			String[] arr1=arr.split("");
 			for(int i=0;i<arr1.length;i++)
 			{
