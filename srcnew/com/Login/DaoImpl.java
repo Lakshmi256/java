@@ -1,4 +1,5 @@
 package com.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,9 +15,9 @@ public class DaoImpl implements Dao{
 	{
 	try
 	{
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");
 		Connection con=DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/login_data","lp","Lp@268742");
+				"jdbc:mysql://localhost:3306/lp","lp","Lp@268742");
 		Statement st=con.createStatement();
 	}
 	catch (Exception e) 
@@ -37,15 +38,15 @@ public class DaoImpl implements Dao{
 		return status;
 		
 	}
-	public String register(String Fname,String Lname,String email,String phone,String city,String state,String country,
+	public String register(String Fname,String Lname,String email,String phoneno,String city,String state,String country,
 			String pin,String uname,String password)
 	{
 		
-		System.out.println(status+"aaa");
+		System.out.println(status+"fhfjh");
 		try {
-			String s1="select * from userlog";
+			String s1="select * from Register";
 			ResultSet rs1=st.executeQuery(s1);
-			System.out.println(status+"aaa");
+			System.out.println(status+"n fhtfdydt");
 			while(rs1.next())
 			{
 				if (uname.equals(rs1.getString(6)))
@@ -55,8 +56,8 @@ public class DaoImpl implements Dao{
 			}
 			if(!status.equals("existed"))
 			{
-				String s2="insert into userlog(Fname,Lname,email,city,state,country,pin,uname,password) values('"
-			+Fname+"','"+Lname+"','"+email+"','"+city+"','"+state+"','"+country+"','"+uname+"','"+password+"',)'";
+				String s2="INSERT INTO Register(Fname,Lname,email,phoneno,city,state,country,pin,uname,password)"+" values('"
+			+Fname+"','"+Lname+"','"+email+"','"+phoneno+"','"+city+"','"+state+"','"+country+"','"+uname+"','"+password+"',)'";
 			
 				int n=st.executeUpdate(s2);
 				System.out.println("record added:"+n);
@@ -72,4 +73,6 @@ public class DaoImpl implements Dao{
 			status="failure";
 		}
 		return status;
-	}}
+	}
+	
+}

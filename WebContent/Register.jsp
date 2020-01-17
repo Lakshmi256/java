@@ -11,7 +11,7 @@
 <p style="font-size:35px;color:red;">Registration Page</p>
 </div>
 
-<form method ="post"action="Logincheck">
+<form method ="post"action="Register">
 <table style="background-color:#0cd9ee;width:27%;margin-left:27em;margin-top:0em;">
 <tr>
 <td>First Name</td><td><input type="text" name="Fname"></td></tr>

@@ -1,25 +1,33 @@
 package com.Login;
 
 import java.io.IOException;
+
+import javax.servlet.FilterChain;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class LoginFilter
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/LoginFilter")
+public class LoginFilter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public LoginFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -27,11 +35,27 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uname=request.getParameter("uname");
-		String Password=request.getParameter("password");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
+public void doFilter(ServletRequest request,ServletResponse response,FilterChain chain) throws IOException, ServletException
+{
+	HttpServletRequest req=(HttpServletRequest)request;
+	HttpServletResponse res=(HttpServletResponse)response;
+	String uname=req.getParameter("uname");
+	String Password=req.getParameter("password");
+	HttpSession s2=req.getSession();
+	RequestDispatcher rd=null;
+	if (uname==null||Password==null)
+	{
+		res.sendRedirect("Login.jsp");
+	}
+	else
+		chain.doFilter(request, response);
+}
 }

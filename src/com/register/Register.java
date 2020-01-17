@@ -39,7 +39,8 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		try
+		{
 		String Fname=request.getParameter("Fname");
 		String Lname=request.getParameter("Lname");
 		String email=request.getParameter("email");
@@ -55,10 +56,19 @@ public class Register extends HttpServlet {
 				pin,uname, password);
 		if(status.equals("success"))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("Register.jsp");
 			rd.forward(request,response);
 			
 		}
+		else
+			if(status.equals("existed"))
+			{
+				
+			}
 	}
-
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
