@@ -22,9 +22,6 @@ public class LoginImplementation implements Dao{
 			//con.createStatement();
 		return con;
 	}
-	
-	
-
 	public String Checklogin(String uname,String password) throws SQLException, ClassNotFoundException
 	{
 		String s="select * from Register";
@@ -40,23 +37,19 @@ public class LoginImplementation implements Dao{
 			{
 				status="failure";
 			}
-		}
-			
-		
-			
+		}	
 		return status;
-		
 	}
 	public String register(String Fname,String Lname,String email,String phoneno,String city,String state,String country,
 			String pin,String uname,String password) throws SQLException, ClassNotFoundException
 	{
 		System.out.println("Connection is established :"+DaoImpl());
-		System.out.println(status+"fhfjh");
+		
 		String s1="select * from Register";
 		
 		st =DaoImpl().prepareStatement(s1);
 		  ResultSet rs1=st.executeQuery();
-		  System.out.println(status+"n fhtfdydt");
+		  
 		  while(rs1.next()) 
 		  {
 			  if (uname.equals(rs1.getString(9))) status="existed";
@@ -66,8 +59,6 @@ public class LoginImplementation implements Dao{
 		
 			if(!status.equals("existed"))
 			{
-//				String s2="INSERT INTO Register(Fname,Lname,email,phoneno,city,state,country,pin,uname,password)" +"VALUES('"
-//			+Fname+"','"+Lname+"','"+email+"','"+phoneno+"','"+city+"','"+state+"','"+country+"','"+uname+"','"+password+"',)'";
 			
 			String insertQuery = "INSERT into Register values(?,?,?,?,?,?,?,?,?,?)";
 			st =DaoImpl().prepareStatement(insertQuery);
@@ -83,7 +74,7 @@ public class LoginImplementation implements Dao{
 			st.setString(10, password);
 			
 				int n=st.executeUpdate();
-				System.out.println("record added:"+n);
+				
 				status= "success";
 				
 			}
@@ -99,8 +90,7 @@ public class LoginImplementation implements Dao{
 		{
 			if ((uname.equals(rs.getString(9)))&&(Password==Password1))
 					{
-		//		String insertQuery="UPDATE Register  WHERE uname="+uname+"SET password="+Password;
-			//	st =DaoImpl().prepareStatement(insertQuery);
+	
 			
 				status="success";
 					}
