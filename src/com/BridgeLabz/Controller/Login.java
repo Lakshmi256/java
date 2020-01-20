@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Bridgelabz.Implementation.LoginImplementation;
 import com.Bridgelabz.service.Dao;
-import com.Bridgelabz.service.DaoImpl;
+
 
 /**
  * Servlet implementation class Login
@@ -23,25 +24,12 @@ public class Login extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 		String uname=request.getParameter("uname");
 		String password=request.getParameter("password");
-		Dao u=new DaoImpl();
+		Dao u=new LoginImplementation();
 		
 			String status=u.Checklogin(uname, password);
 			if (status.equals("success"))

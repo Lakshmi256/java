@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Bridgelabz.Implementation.LoginImplementation;
 import com.Bridgelabz.service.Dao;
-import com.Bridgelabz.service.DaoImpl;
 
 /**
  * Servlet implementation class Register
@@ -36,7 +36,7 @@ public class Register extends HttpServlet {
 		String pin=request.getParameter("pin");
 		String uname=request.getParameter("uname");
 		String password=request.getParameter("password");
-		Dao u=new DaoImpl();
+		Dao u=new LoginImplementation();
 		System.out.println(pin);
 		String status=u.register(Fname,Lname,email,phoneno,city,state,country,
 				pin,uname, password);

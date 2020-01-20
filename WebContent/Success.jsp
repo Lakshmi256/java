@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>Logged in Successfully</p>
+<div style="background-color:#0cd9ee ;width:18%;margin-left:32em;">
+<p><h1>Logged in Successfully</p></h1>
+</div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <div style="background-color:#0cd9ee ;width:25%;margin-left:28em;margin-top:10em;">
 <p style="font-size:50px;color:red;">Login Page</p>
 </div>
-<form method ="post"action="Login">
+<form method ="post"action="ForgotPassword">
 
 <table style="background-color:#0cd9ee;width:27%;margin-left:27em;margin-top:0em;">
 <tr>

@@ -1,4 +1,4 @@
-package com.Bridgelabz.service;
+package com.Bridgelabz.Implementation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DaoImpl implements Dao{
+import com.Bridgelabz.service.Dao;
+
+public class LoginImplementation implements Dao{
 	ResultSet rs=null;
 	Connection con=null;
 	PreparedStatement st=null;
@@ -92,20 +94,17 @@ public class DaoImpl implements Dao{
 		String s="select * from Register";
 		st =DaoImpl().prepareStatement(s);
 		rs=st.executeQuery();
-		status="failure";
+		
 		while(rs.next())
 		{
 			if ((uname.equals(rs.getString(9)))&&(Password==Password1))
 					{
-				String insertQuery="INSERT INTO Register VALUES WHERE uname="+uname;
-				st =DaoImpl().prepareStatement(insertQuery);
-				st.setString(10, Password);
-				st.executeUpdate();
+		//		String insertQuery="UPDATE Register  WHERE uname="+uname+"SET password="+Password;
+			//	st =DaoImpl().prepareStatement(insertQuery);
+			
 				status="success";
 					}
-			
 		}
-	
 		return status;
 		
 	}

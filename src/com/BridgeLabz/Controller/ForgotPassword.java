@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Bridgelabz.Implementation.LoginImplementation;
 import com.Bridgelabz.service.Dao;
-import com.Bridgelabz.service.DaoImpl;
+
 
 /**
  * Servlet implementation class ForgotPassword
@@ -29,7 +30,7 @@ public class ForgotPassword extends HttpServlet {
 		String uname=request.getParameter("uname");
 	String  password=request.getParameter("password");
 	String password1=request.getParameter("password1");
-Dao u=new DaoImpl();
+Dao u=new LoginImplementation();
 
 	String status=u.changePassword(uname, password, password1);
 
