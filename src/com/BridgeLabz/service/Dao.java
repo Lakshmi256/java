@@ -1,4 +1,4 @@
-package com.Bridgelabz.service;
+package com.BridgeLabz.service;
 import java.sql.SQLException;
 
 public interface Dao {

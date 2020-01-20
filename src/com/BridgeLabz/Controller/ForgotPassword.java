@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Bridgelabz.Implementation.LoginImplementation;
-import com.Bridgelabz.service.Dao;
+import com.BridgeLabz.Implementation.LoginImplementation;
+import com.BridgeLabz.service.Dao;
 
 
 /**
