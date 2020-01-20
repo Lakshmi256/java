@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 <div style="background-color:#0cd9ee ;width:25%;margin-left:28em;">
 <p style="font-size:35px;color:red;">Registration Page</p>
@@ -22,7 +23,7 @@
 <tr><td>state</td><td><input type="text" name="state"></td></tr>
 <tr><td>nationality</td><td><input type="text" name="country"></td></tr>
 <tr><td>pin code</td><td><input type="text" name="pin"></td></tr>
-<tr><td>user name</td><td><input type="text" name="Uname"></td></tr>
+<tr><td>user name</td><td><input type="text" name="uname"></td></tr>
 <tr><td>password</td><td><input type="password" name="password"></td></tr>
 <tr><td></td><td><input  value="login" type="submit"></input></td></tr>
 </table></form>
