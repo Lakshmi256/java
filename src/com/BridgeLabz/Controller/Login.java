@@ -1,33 +1,32 @@
-package com.Login;
+package com.BridgeLabz.Controller;
 
+import java.awt.Window;
 import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.Bridgelabz.service.Dao;
+import com.Bridgelabz.service.DaoImpl;
 
 /**
- * Servlet implementation class LoginFilter
+ * Servlet implementation class Login
  */
-@WebServlet("/LoginFilter")
-public class LoginFilter extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginFilter() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -35,27 +34,28 @@ public class LoginFilter extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+		String uname=request.getParameter("uname");
+		String password=request.getParameter("password");
+		Dao u=new DaoImpl();
+		
+			String status=u.Checklogin(uname, password);
+			if (status.equals("success"))
+			{
+				RequestDispatcher rd=request.getRequestDispatcher("Success.jsp");
+				rd.forward(request, response);
+			}
+			else
+				response.sendRedirect("Invalid.jsp");
+			
+		} 
+		catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-public void doFilter(ServletRequest request,ServletResponse response,FilterChain chain) throws IOException, ServletException
-{
-	HttpServletRequest req=(HttpServletRequest)request;
-	HttpServletResponse res=(HttpServletResponse)response;
-	String uname=req.getParameter("uname");
-	String Password=req.getParameter("password");
-	HttpSession s2=req.getSession();
-	RequestDispatcher rd=null;
-	if (uname==null||Password==null)
-	{
-		res.sendRedirect("Login.jsp");
-	}
-	else
-		chain.doFilter(request, response);
-}
 }

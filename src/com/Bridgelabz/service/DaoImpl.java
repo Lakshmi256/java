@@ -1,4 +1,4 @@
-package com.LoginImpl;
+package com.Bridgelabz.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,13 +25,23 @@ public class DaoImpl implements Dao{
 
 	public String Checklogin(String uname,String password) throws SQLException, ClassNotFoundException
 	{
-		String s="'select * from userlog where uname='"+uname+"'and password='"+password+"'";
+		String s="select * from Register";
 		st =DaoImpl().prepareStatement(s);
 		rs=st.executeQuery();
-		if(rs.next())
-			status="success";
-		else
-			status="failure";
+		while(rs.next())
+		{
+			if ((uname.equals(rs.getString(9)))&&(password.equals(rs.getString(10))))
+					{
+				status="success";
+					}
+			else
+			{
+				status="failure";
+			}
+		}
+			
+		
+			
 		return status;
 		
 	}
@@ -42,15 +52,18 @@ public class DaoImpl implements Dao{
 		System.out.println(status+"fhfjh");
 		String s1="select * from Register";
 		
-		/*
-		 * ResultSet rs1=st.executeQuery(s1); System.out.println(status+"n fhtfdydt");
-		 * while(rs1.next()) { if (uname.equals(rs1.getString(9))) status="existed";
-		 * break;
-		 * 
-		 * }
-		 */
-			/*if(!status.equals("existed"))
-			{*/
+		st =DaoImpl().prepareStatement(s1);
+		  ResultSet rs1=st.executeQuery();
+		  System.out.println(status+"n fhtfdydt");
+		  while(rs1.next()) 
+		  {
+			  if (uname.equals(rs1.getString(9))) status="existed";
+		  break;
+		  
+		  }
+		
+			if(!status.equals("existed"))
+			{
 //				String s2="INSERT INTO Register(Fname,Lname,email,phoneno,city,state,country,pin,uname,password)" +"VALUES('"
 //			+Fname+"','"+Lname+"','"+email+"','"+phoneno+"','"+city+"','"+state+"','"+country+"','"+uname+"','"+password+"',)'";
 			
@@ -71,8 +84,30 @@ public class DaoImpl implements Dao{
 				System.out.println("record added:"+n);
 				status= "success";
 				
-		//	}
+			}
 		return status;
+	}
+	public String changePassword(String uname,String Password, String Password1) throws ClassNotFoundException, SQLException
+	{
+		String s="select * from Register";
+		st =DaoImpl().prepareStatement(s);
+		rs=st.executeQuery();
+		status="failure";
+		while(rs.next())
+		{
+			if ((uname.equals(rs.getString(9)))&&(Password==Password1))
+					{
+				String insertQuery="INSERT INTO Register VALUES WHERE uname="+uname;
+				st =DaoImpl().prepareStatement(insertQuery);
+				st.setString(10, Password);
+				st.executeUpdate();
+				status="success";
+					}
+			
+		}
+	
+		return status;
+		
 	}
 	
 }

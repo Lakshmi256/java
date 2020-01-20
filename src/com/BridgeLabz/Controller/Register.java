@@ -1,4 +1,4 @@
-package com.Login;
+package com.BridgeLabz.Controller;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.LoginImpl.Dao;
-import com.LoginImpl.DaoImpl;
+import com.Bridgelabz.service.Dao;
+import com.Bridgelabz.service.DaoImpl;
 
 /**
  * Servlet implementation class Register
@@ -34,7 +34,7 @@ public class Register extends HttpServlet {
 		String state=request.getParameter("state");
 		String country=request.getParameter("country");
 		String pin=request.getParameter("pin");
-		String uname=request.getParameter("user name");
+		String uname=request.getParameter("uname");
 		String password=request.getParameter("password");
 		Dao u=new DaoImpl();
 		System.out.println(pin);
@@ -42,14 +42,14 @@ public class Register extends HttpServlet {
 				pin,uname, password);
 		if(status.equals("success"))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("Register.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");
 			rd.forward(request,response);
 			
 		}
 		else
 			if(status.equals("existed"))
 			{
-				
+				response.sendRedirect("Register.jsp");
 			}
 	}
 		catch(Exception e)
