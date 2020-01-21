@@ -1,4 +1,4 @@
-package com.BridgeLabz.Controller;
+package com.BridgeLabz.controller;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.BridgeLabz.Implementation.LoginImplementation;
-import com.BridgeLabz.service.Dao;
+import com.BridgeLabz.service.LoginService;
 
 /**
  * Servlet implementation class Register
@@ -36,7 +36,7 @@ public class Register extends HttpServlet {
 		String pin=request.getParameter("pin");
 		String uname=request.getParameter("uname");
 		String password=request.getParameter("password");
-		Dao u=new LoginImplementation();
+		LoginService u=new LoginImplementation();
 		System.out.println(pin);
 		String status=u.register(Fname,Lname,email,phoneno,city,state,country,
 				pin,uname, password);

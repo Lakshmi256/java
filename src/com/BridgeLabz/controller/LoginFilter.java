@@ -1,4 +1,4 @@
-package com.BridgeLabz.Controller;
+package com.BridgeLabz.controller;
 
 import java.io.IOException;
 

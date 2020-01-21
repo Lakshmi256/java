@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.BridgeLabz.service.Dao;
+import com.BridgeLabz.service.LoginService;
 
-public class LoginImplementation implements Dao{
+public class LoginImplementation implements LoginService{
 	ResultSet rs=null;
 	Connection con=null;
 	PreparedStatement st=null;
@@ -80,23 +80,6 @@ public class LoginImplementation implements Dao{
 			}
 		return status;
 	}
-	public String changePassword(String uname,String Password, String Password1) throws ClassNotFoundException, SQLException
-	{
-		String s="select * from Register";
-		st =DaoImpl().prepareStatement(s);
-		rs=st.executeQuery();
-		
-		while(rs.next())
-		{
-			if ((uname.equals(rs.getString(9)))&&(Password==Password1))
-					{
-	
-			
-				status="success";
-					}
-		}
-		return status;
-		
-	}
+
 	
 }

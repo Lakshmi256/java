@@ -1,4 +1,4 @@
-package com.BridgeLabz.Controller;
+package com.BridgeLabz.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.BridgeLabz.Implementation.LoginImplementation;
-import com.BridgeLabz.service.Dao;
+import com.BridgeLabz.service.LoginService;
 
 
 /**
@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
 		try {
 		String uname=request.getParameter("uname");
 		String password=request.getParameter("password");
-		Dao u=new LoginImplementation();
+		LoginService u=new LoginImplementation();
 		
 			String status=u.Checklogin(uname, password);
 			if (status.equals("success"))
@@ -37,7 +37,7 @@ public class Login extends HttpServlet {
 				rd.forward(request, response);
 			}
 			else
-				response.sendRedirect("Invalid.jsp");
+				response.sendRedirect("Login.jsp");
 			
 		} 
 		catch (ClassNotFoundException | SQLException e) {
