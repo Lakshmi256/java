@@ -1,4 +1,4 @@
-package com.BridgeLabz.Implementation;
+package com.BridgeLabz.implementation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,19 +13,13 @@ public class LoginImplementation implements LoginService{
 	Connection con=null;
 	PreparedStatement st=null;
 	String status="";
-	public Connection DaoImpl() throws SQLException, ClassNotFoundException
-	{
-	
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/lp","lp","Lp@268742");
-			//con.createStatement();
-		return con;
-	}
+
 	public String Checklogin(String uname,String password) throws SQLException, ClassNotFoundException
 	{
 		String s="select * from Register";
-		st =DaoImpl().prepareStatement(s);
+		DataBaseConfigure DB=new DataBaseConfigure();
+		st=DB.DataBaseConfigure().prepareStatement(s);;
+	
 		rs=st.executeQuery();
 		while(rs.next())
 		{
@@ -43,11 +37,11 @@ public class LoginImplementation implements LoginService{
 	public String register(String Fname,String Lname,String email,String phoneno,String city,String state,String country,
 			String pin,String uname,String password) throws SQLException, ClassNotFoundException
 	{
-		System.out.println("Connection is established :"+DaoImpl());
+	
 		
 		String s1="select * from Register";
-		
-		st =DaoImpl().prepareStatement(s1);
+		DataBaseConfigure DB=new DataBaseConfigure();
+		st=DB.DataBaseConfigure().prepareStatement(s1);;
 		  ResultSet rs1=st.executeQuery();
 		  
 		  while(rs1.next()) 
@@ -61,7 +55,7 @@ public class LoginImplementation implements LoginService{
 			{
 			
 			String insertQuery = "INSERT into Register values(?,?,?,?,?,?,?,?,?,?)";
-			st =DaoImpl().prepareStatement(insertQuery);
+			st=DB.DataBaseConfigure().prepareStatement(insertQuery);
 			st.setString(1, Fname);
 			st.setString(2, Lname);
 			st.setString(3, email);
