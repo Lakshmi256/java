@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.BridgeLabz.Implementation.LoginImplementation;
+import com.BridgeLabz.model.LoginModel;
 import com.BridgeLabz.service.LoginService;
 
 
@@ -26,11 +27,12 @@ public class Login extends HttpServlet {
   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		String uname=request.getParameter("uname");
-		String password=request.getParameter("password");
+			LoginModel User=new LoginModel();
+		User.setUname(request.getParameter("uname"));
+		User.setPassword(request.getParameter("password"));
 		LoginService u=new LoginImplementation();
 		
-			String status=u.Checklogin(uname, password);
+			String status=u.Checklogin(User.getUname(), User.getPassword());
 			if (status.equals("success"))
 			{
 				RequestDispatcher rd=request.getRequestDispatcher("Success.jsp");

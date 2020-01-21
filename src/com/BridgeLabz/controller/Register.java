@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.BridgeLabz.Implementation.LoginImplementation;
+import com.BridgeLabz.model.LoginModel;
 import com.BridgeLabz.service.LoginService;
 
 /**
@@ -26,20 +27,21 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try
 		{
-		String Fname=request.getParameter("Fname");
-		String Lname=request.getParameter("Lname");
-		String email=request.getParameter("email");
-		String phoneno=request.getParameter("phoneno");
-		String city=request.getParameter("city");
-		String state=request.getParameter("state");
-		String country=request.getParameter("country");
-		String pin=request.getParameter("pin");
-		String uname=request.getParameter("uname");
-		String password=request.getParameter("password");
+			LoginModel Register=new LoginModel();
+		Register.setFname(request.getParameter("Fname"));
+		Register.setLname(request.getParameter("Lname"));
+		Register.setEmail(request.getParameter("email"));
+		Register.setPhoneno(request.getParameter("phoneno"));
+		Register.setCity(request.getParameter("city"));
+		Register.setState(request.getParameter("state"));
+		Register.setCountry(request.getParameter("country"));
+		Register.setPin(request.getParameter("pin"));
+		Register.setUname(request.getParameter("uname"));
+		Register.setPassword(request.getParameter("password"));
 		LoginService u=new LoginImplementation();
-		System.out.println(pin);
-		String status=u.register(Fname,Lname,email,phoneno,city,state,country,
-				pin,uname, password);
+
+		String status=u.register(Register.getFname(),Register.getLname(),Register.getEmail(),Register.getPhoneno(),Register.getCity(),Register.getState(),Register.getCountry(),
+				Register.getPin(),Register.getUname(), Register.getPassword());
 		if(status.equals("success"))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");
