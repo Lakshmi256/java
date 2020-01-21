@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
 		User.setPassword(request.getParameter("password"));
 		LoginService u=new LoginImplementation();
 		
-			String status=u.Checklogin(User.getUname(), User.getPassword());
+			String status=u.Checklogin(User);
 			if (status.equals("success"))
 			{
 				RequestDispatcher rd=request.getRequestDispatcher("Success.jsp");

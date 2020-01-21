@@ -40,8 +40,7 @@ public class Register extends HttpServlet {
 		Register.setPassword(request.getParameter("password"));
 		LoginService u=new LoginImplementation();
 
-		String status=u.register(Register.getFname(),Register.getLname(),Register.getEmail(),Register.getPhoneno(),Register.getCity(),Register.getState(),Register.getCountry(),
-				Register.getPin(),Register.getUname(), Register.getPassword());
+		String status=u.register(Register);
 		if(status.equals("success"))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");
